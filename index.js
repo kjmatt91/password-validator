@@ -10,23 +10,14 @@ function validatePassword(password) {
   let lowers = 'abcdefghijklmnopqrstuvwxyz'
 
 
-
   for (let i = 0; i < password.length; i++) {
     let character = password[i]
 
     // Must contain at least one lower case letter
-    // if (character === character.toLowerCase()) {
-    //   lowerCase = true
-    // }
-
     if (lowers.indexOf(character) > -1) {
       lowerCase = true
     }
     // Must contain at least one upper case letter
-    // if (character > 96 && character < 123/* === character.toUpperCase()*/) {
-    //   upperCase = true
-    // }
-
     if (capitals.indexOf(character) > -1) {
       upperCase = true
     }
