@@ -5,7 +5,9 @@ function validatePassword(password) {
   let upperCase = false
   let number = false
   let specialChar = false
-  let specChars = '!@#$%^&*'
+  let specials = '`~!@#$%^&*()_-+={}[]|:;?/>.<,'
+  let capitals = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let lowers = 'abcdefghijklmnopqrstuvwxyz'
 
 
 
@@ -13,11 +15,19 @@ function validatePassword(password) {
     let character = password[i]
 
     // Must contain at least one lower case letter
-    if (character === character.toLowerCase() && character >= 97 && character <= 122) {
+    // if (character === character.toLowerCase()) {
+    //   lowerCase = true
+    // }
+
+    if (lowers.indexOf(character) > -1) {
       lowerCase = true
     }
     // Must contain at least one upper case letter
-    if (character === character.toUpperCase() && character >= 65 && character <= 90) {
+    // if (character > 96 && character < 123/* === character.toUpperCase()*/) {
+    //   upperCase = true
+    // }
+
+    if (capitals.indexOf(character) > -1) {
       upperCase = true
     }
     // Must contain at least one numeric value
@@ -25,7 +35,7 @@ function validatePassword(password) {
       number = true
     }
     // Must contain at least one special character
-    if (specChars.indexOf(character) > -1) {
+    if (specials.indexOf(character) > -1) {
       specialChar = true
     }
   }
