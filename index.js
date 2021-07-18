@@ -1,9 +1,5 @@
 // Returns true when passwoerd meets all requirements
 function validatePassword(password) {
-  // if (password !== requirements) {
-  //   return false
-  // }
-
   let length = password.length >= 8
   let lowerCase = false
   let upperCase = false
@@ -17,11 +13,11 @@ function validatePassword(password) {
     let character = password[i]
 
     // Must contain at least one lower case letter
-    if (character === character.toLowerCase()) {
+    if (character === character.toLowerCase() && character >= 97 && character <= 122) {
       lowerCase = true
     }
     // Must contain at least one upper case letter
-    if (character === character.toUpperCase()) {
+    if (character === character.toUpperCase() && character >= 65 && character <= 90) {
       upperCase = true
     }
     // Must contain at least one numeric value
@@ -37,7 +33,5 @@ function validatePassword(password) {
   return lowerCase && upperCase && length && number && specialChar
 }
 
-
-// let requirements = lowerCase + upperCase + do i need this???
 
 module.exports = validatePassword
